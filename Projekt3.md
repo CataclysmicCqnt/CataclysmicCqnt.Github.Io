@@ -1,3 +1,4 @@
+<html>
 <form action="/submit-form" method="post">
 
 
@@ -87,4 +88,6 @@
         <br><br>
 
     <button type="submit">Wyślij Formularz</button>
+
 </form>
+</html>
