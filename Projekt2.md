@@ -1,3 +1,4 @@
+<html>
 <img src="apples.jpg" width=1980 alt="Jabłka">
 <br>
 <img src="bananas.jpg" width=1980 alt="Banany">
@@ -5,3 +6,4 @@
 <img src="strawberries.jpg" width=1980 alt="Truskawki">
 <br>
 <img src="Blueberries.jpg" width=1980 alt="Jagody">
+</html>
