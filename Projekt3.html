@@ -1,0 +1,93 @@
+<html>
+<form action="/submit-form" method="post">
+
+
+        <label for="imie">Imię:</label>
+        <input type="text" id="imie" name="imie">
+        <br><br>
+
+        <label for="nazwisko">Nazwisko:</label>
+        <input type="text" id="nazwisko" name="nazwisko">
+        <br><br>
+
+        <label for="data_urodzenia">Data urodzenia:</label>
+        <input type="date" id="data_urodzenia" name="data_urodzenia">
+        <br><br>
+
+        <label for="plec">Płeć:</label>
+        <input type="radio" id="kobieta" name="plec" value="kobieta">
+        <label for="kobieta">Kobieta</label>
+        <input type="radio" id="mezczyzna" name="plec" value="mezczyzna">
+        <label for="mezczyzna">Mężczyzna</label>
+        <input type="radio" id="inna" name="plec" value="inna">
+        <label for="inna">Inna</label>
+        <br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+
+        <label for="telefon">Telefon:</label>
+        <input type="tel" id="telefon" name="telefon">
+        <br><br>
+
+        <label for="ulica">Ulica i numer:</label>
+        <input type="text" id="ulica" name="ulica">
+        <br><br>
+
+        <label for="miasto">Miasto:</label>
+        <input type="text" id="miasto" name="miasto">
+        <br><br>
+
+        <label for="wojewodztwo">Województwo:</label>
+        <select id="wojewodztwo" name="wojewodztwo">
+            <option value="">-- Wybierz --</option>
+            <option value="dolnoslaskie">dolnośląskie</option>
+            <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+            <option value="lubelskie">lubelskie</option>
+            <option value="lubuskie">lubuskie</option>
+            <option value="lodzkie">łódzkie</option>
+            <option value="malopolskie">małopolskie</option>
+            <option value="mazowieckie">mazowieckie</option>
+            <option value="opolskie">opolskie</option>
+            <option value="podkarpackie">podkarpackie</option>
+            <option value="podlaskie">podlaskie</option>
+            <option value="pomorskie">pomorskie</option>
+            <option value="slaskie">śląskie</option>
+            <option value="swietokrzyskie">świętokrzyskie</option>
+            <option value="warminsko-mazurskie">warmińsko-mazurskie</option>
+            <option value="wielkopolskie">wielkopolskie</option>
+            <option value="zachodniopomorskie">zachodniopomorskie</option>
+        </select>
+        <br><br>
+
+        <label for="haslo">Hasło:</label>
+        <input type="password" id="haslo" name="haslo">
+        <br><br>
+
+        <p>Posiadasz prawo jazdy?</p>
+        <input type="radio" id="prawo_jazdy_tak" name="prawo_jazdy" value="tak">
+        <label for="prawo_jazdy_tak">Tak</label>
+        <input type="radio" id="prawo_jazdy_nie" name="prawo_jazdy" value="nie">
+        <label for="prawo_jazdy_nie">Nie</label>
+        <br><br>
+
+        <label for="kategoria">Kategoria prawa jazdy:</label>
+        <input type="text" id="kategoria" name="kategoria" list="kategorie_list">
+        <datalist id="kategorie_list">
+            <option value="A">
+            <option value="B">
+            <option value="C">
+            <option value="D">
+            <option value="T">
+        </datalist>
+        <br><br>
+
+        <label for="uwagi">Uwagi:</label>
+        <textarea id="uwagi" name="uwagi" rows="5" cols="40"></textarea>
+        <br><br>
+
+    <button type="submit">Wyślij Formularz</button>
+
+</form>
+</html>
