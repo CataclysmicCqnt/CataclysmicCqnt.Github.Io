@@ -1,24 +1,26 @@
 <html>
 <head>
-<style>
+
+    <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #000000;
             font-family: Arial, sans-serif;
             margin: 0;
         }
-        .kalkulator {
+
+        .calculator {
             width: 300px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            background-color: #000000;
             overflow: hidden;
         }
-        #widok {
+
+        #display {
             width: 100%;
             height: 60px;
             font-size: 2rem;
@@ -29,12 +31,14 @@
             background-color: #eee;
             color: #333;
         }
-        .prpr {
+
+        .keys {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1px;
         }
-        przycisk {
+
+        button {
             height: 60px;
             font-size: 1.5rem;
             border: none;
@@ -42,11 +46,13 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-        .przycisk2 {
+
+        .operator {
             background-color: #f39c12;
             color: white;
         }
-        .suma {
+
+        .equals {
             grid-column: span 4;
             background-color: #2ecc71;
         }
@@ -54,46 +60,46 @@
     </head>
 <body>
 
-    <div class="kalkulator">
-        <input type="text" id="widok" readonly>
-        <div class="prpr">
-            <przycisk onclick="dodaj('7')">7</przycisk>
-            <przycisk onclick="dodaj('8')">8</przycisk>
-            <przycisk onclick="dodaj('9')">9</przycisk>
-            <przycisk onclick="dodaj('/')" class="przycisk2">/</przycisk>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="keys">
+            <button onclick="dodaj('7')">7</button>
+            <button onclick="dodaj('8')">8</button>
+            <button onclick="dodaj('9')">9</button>
+            <button onclick="dodaj('/')" class="operator">/</button>
             
-            <przycisk onclick="dodaj('4')">4</przycisk>
-            <przycisk onclick="dodaj('5')">5</przycisk>
-            <przycisk onclick="dodaj('6')">6</przycisk>
-            <przycisk onclick="dodaj('*')" class="przycisk2">*</przycisk>
+            <button onclick="dodaj('4')">4</button>
+            <button onclick="dodaj('5')">5</button>
+            <button onclick="dodaj('6')">6</button>
+            <button onclick="dodaj('*')" class="operator">*</button>
             
-            <przycisk onclick="dodaj('1')">1</przycisk>
-            <przycisk onclick="dodaj('2')">2</przycisk>
-            <przycisk onclick="dodaj('3')">3</przycisk>
-            <przycisk onclick="dodaj('-')" class="przycisk2">-</przycisk>
+            <button onclick="dodaj('1')">1</button>
+            <button onclick="dodaj('2')">2</button>
+            <button onclick="dodaj('3')">3</button>
+            <button onclick="dodaj('-')" class="operator">-</button>
             
-            <przycisk onclick="dodaj('0')">0</przycisk>
-            <przycisk onclick="dodaj('.')">.</przycisk>
-            <przycisk onclick="czysc()" class="przycisk2">C</przycisk>
-            <przycisk onclick="dodaj('+')" class="przycisk2">+</przycisk>
+            <button onclick="dodaj('0')">0</button>
+            <button onclick="dodaj('.')">.</button>
+            <button onclick="c()" class="operator">C</button>
+            <button onclick="dodaj('+')" class="operator">+</button>
 
-            <przycisk onclick="kalkuluj()" class="przycisk2 suma">=</przycisk>
+            <button onclick="kalk()" class="operator equals">=</button>
         </div>
     </div>
     <script>
         const widok = document.getElementById('widok');
         function dodaj(wartosc) {
-            display.value += wartosc;
+            widok.wartosc += wartosc;
         }
-        function czysc() {
-            display.value = '';
+        function c() {
+            widok.wartosc = '';
         }
-        function kalkuluj() {
+        function kalk() {
             try {
-                const wynik = eval(widok.value);
-                widok.wartosc = wynik;
+                const wartosc = eval(widok.wartosc);
+                widok.wartosc = result;
             } catch (error) {
-                widok.wynik = 'Error';
+                widok.wartosc = 'Error';
             }
         }
     </script>
