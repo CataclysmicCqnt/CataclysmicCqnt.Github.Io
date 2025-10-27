@@ -105,8 +105,8 @@
         /**
          * Dodaje klikniętą wartość (cyfrę lub operator) do wyświetlacza.
          */
-        function dodaj(value) {
-            display.value += value;
+        function dodaj(wartosc) {
+            display.value += wartosc;
         }
 
         /**
@@ -122,11 +122,11 @@
         function kalkuluj() {
             try {
                 // Używamy funkcji eval() do obliczenia wyrażenia
-                const result = eval(widok.value);
-                widok.value = result;
+                const wynik = eval(widok.value);
+                widok.wartosc = wynik;
             } catch (error) {
                 // Jeśli użytkownik wpisał nieprawidłowe wyrażenie
-                widok.value = 'Error';
+                widok.wynik = 'Error';
             }
         }
     </script>
