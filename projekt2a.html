@@ -1,18 +1,45 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
+    <title>Obrazy z Podpisami</title>
     <style>
-        img {
-            width: 100%; 
-            height: auto; 
-            margin-bottom: 15px;
+        /* Minimalny styl dla kontenera <figure> */
+        .image-container {
+            width: 100%; /* Blok zajmuje 100% szerokości */
+            margin: 0;   /* Resetuje domyślne marginesy <figure> */
+            margin-bottom: 20px; /* Odstęp POD blokiem */
+        }
+
+        /* Obraz dopasowuje się do kontenera */
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block; /* Ważne dla usunięcia odstępów */
+        }
+
+        /* Podstawowe stylowanie podpisu */
+        .image-container figcaption {
+            padding: 10px; /* Mały odstęp, by tekst nie dotykał krawędzi */
+            text-align: center; /* Wyśrodkowanie podpisu */
         }
     </style>
 </head>
 <body>
 
-    <img src="apples.jpg" alt="Jabłka">
-    <img src="strawberries.jpg" alt="Truskawki">
-    <img src="Blueberries.jpg" alt="Jagody">
+    <figure class="image-container">
+        <img src="apples.jpg" alt="Dojrzałe, czerwone jabłka na drzewie.">
+        <figcaption>Jabłka 🍎</figcaption>
+    </figure>
+
+    <figure class="image-container">
+        <img src="strawberries.jpg" alt="Zbliżenie na świeże truskawki w koszyku.">
+        <figcaption>Truskawki 🍓</figcaption>
+    </figure>
+
+    <figure class="image-container">
+        <img src="Blueberries.jpg" alt="Miseczka pełna świeżych jagód.">
+        <figcaption>Jagody 🫐</figcaption>
+    </figure>
 
 </body>
 </html>
