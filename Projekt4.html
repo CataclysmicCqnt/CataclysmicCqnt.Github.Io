@@ -75,58 +75,58 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="keys">
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('/')" class="operator">/</button>
+            <button onclick="dodaj('7')">7</button>
+            <button onclick="dodaj('8')">8</button>
+            <button onclick="dodaj('9')">9</button>
+            <button onclick="dodaj('/')" class="operator">/</button>
             
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('*')" class="operator">*</button>
+            <button onclick="dodaj('4')">4</button>
+            <button onclick="dodaj('5')">5</button>
+            <button onclick="dodaj('6')">6</button>
+            <button onclick="dodaj('*')" class="operator">*</button>
             
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="dodaj('1')">1</button>
+            <button onclick="dodaj('2')">2</button>
+            <button onclick="dodaj('3')">3</button>
+            <button onclick="dodaj('-')" class="operator">-</button>
             
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="clearDisplay()" class="operator">C</button>
-            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="dodaj('0')">0</button>
+            <button onclick="dodaj('.')">.</button>
+            <button onclick="czysc()" class="operator">C</button>
+            <button onclick="dodaj('+')" class="operator">+</button>
 
-            <button onclick="calculate()" class="operator equals">=</button>
+            <button onclick="kalkuluj()" class="operator equals">=</button>
         </div>
     </div>
     <script>
         // Pobieramy element wyświetlacza
-        const display = document.getElementById('display');
+        const widok = document.getElementById('widok');
 
         /**
          * Dodaje klikniętą wartość (cyfrę lub operator) do wyświetlacza.
          */
-        function appendToDisplay(value) {
+        function dodaj(value) {
             display.value += value;
         }
 
         /**
          * Czyści cały wyświetlacz.
          */
-        function clearDisplay() {
+        function czysc() {
             display.value = '';
         }
 
         /**
          * Oblicza wyrażenie na wyświetlaczu.
          */
-        function calculate() {
+        function kalkuluj() {
             try {
                 // Używamy funkcji eval() do obliczenia wyrażenia
-                const result = eval(display.value);
-                display.value = result;
+                const result = eval(widok.value);
+                widok.value = result;
             } catch (error) {
                 // Jeśli użytkownik wpisał nieprawidłowe wyrażenie
-                display.value = 'Błąd';
+                widok.value = 'Error';
             }
         }
     </script>
