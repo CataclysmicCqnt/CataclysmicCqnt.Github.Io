@@ -12,24 +12,20 @@
         }
 
         .calculator {
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
+            width: 500px;
+            border: 1px
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             background-color: #000000;
-            overflow: hidden;
         }
 
         #display {
             width: 100%;
-            height: 60px;
+            height: 100px;
             font-size: 2rem;
             text-align: right;
             padding: 10px;
-            border: none;
             box-sizing: border-box; 
             background-color: #5E5E5E;
-            color: #333;
         }
 
         .keys {
@@ -38,23 +34,20 @@
             gap: 1px;
         }
 
-        button {
-            height: 60px;
+        przycisk {
+            height: 100px;
             font-size: 1.5rem;
             border: none;
             background-color: #292929;
-            cursor: pointer;
-            transition: background-color 0.2s;
         }
 
-        .operator {
+        .przycisk2 {
             background-color: #8F0000;
-            color: white;
         }
 
-        .equals {
+        .suma {
             grid-column: span 4;
-            background-color: #FF0000;
+            background-color: #E80000;
         }
 
     </style>
@@ -64,57 +57,42 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="keys">
-            <button onclick="dodaj('7')">7</button>
-            <button onclick="dodaj('8')">8</button>
-            <button onclick="dodaj('9')">9</button>
-            <button onclick="dodaj('/')" class="operator">/</button>
+            <przycisk onclick="dodaj('7')">7</przycisk>
+            <przycisk onclick="dodaj('8')">8</przycisk>
+            <przycisk onclick="dodaj('9')">9</przycisk>
+            <przycisk onclick="dodaj('/')" class="przycisk2">/</przycisk>
             
-            <button onclick="dodaj('4')">4</button>
-            <button onclick="dodaj('5')">5</button>
-            <button onclick="dodaj('6')">6</button>
-            <button onclick="dodaj('*')" class="operator">*</button>
+            <przycisk onclick="dodaj('4')">4</przycisk>
+            <przycisk onclick="dodaj('5')">5</przycisk>
+            <przycisk onclick="dodaj('6')">6</przycisk>
+            <przycisk onclick="dodaj('*')" class="przycisk2">*</przycisk>
             
-            <button onclick="dodaj('1')">1</button>
-            <button onclick="dodaj('2')">2</button>
-            <button onclick="dodaj('3')">3</button>
-            <button onclick="dodaj('-')" class="operator">-</button>
+            <przycisk onclick="dodaj('1')">1</przycisk>
+            <przycisk onclick="dodaj('2')">2</przycisk>
+            <przycisk onclick="dodaj('3')">3</przycisk>
+            <przycisk onclick="dodaj('-')" class="przycisk2">-</przycisk>
             
-            <button onclick="dodaj('0')">0</button>
-            <button onclick="dodaj('.')">.</button>
-            <button onclick="czysc()" class="operator">C</button>
-            <button onclick="dodaj('+')" class="operator">+</button>
+            <przycisk onclick="dodaj('0')">0</przycisk>
+            <przycisk onclick="dodaj('.')">.</przycisk>
+            <przycisk onclick="czysc()" class="przycisk2">C</przycisk>
+            <przycisk onclick="dodaj('+')" class="przycisk2">+</przycisk>
 
-            <button onclick="kalkuluj()" class="operator equals">=</button>
+            <przycisk onclick="kalkuluj()" class="przycisk2 suma">=</przycisk>
         </div>
     </div>
     <script>
-        // Pobieramy element wyświetlacza
         const widok = document.getElementById('widok');
-
-        /**
-         * Dodaje klikniętą wartość (cyfrę lub operator) do wyświetlacza.
-         */
         function dodaj(wartosc) {
             display.value += wartosc;
         }
-
-        /**
-         * Czyści cały wyświetlacz.
-         */
         function czysc() {
             display.value = '';
         }
-
-        /**
-         * Oblicza wyrażenie na wyświetlaczu.
-         */
         function kalkuluj() {
             try {
-                // Używamy funkcji eval() do obliczenia wyrażenia
                 const wynik = eval(widok.value);
                 widok.wartosc = wynik;
             } catch (error) {
-                // Jeśli użytkownik wpisał nieprawidłowe wyrażenie
                 widok.wynik = 'Error';
             }
         }
