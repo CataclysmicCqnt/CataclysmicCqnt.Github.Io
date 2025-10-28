@@ -81,23 +81,25 @@
             <button onclick="appendToDisplay('+')" class="operator">+</button>
         </div>
     </div>
-    <script>
-        const calc = document.getElementById('display');
-        //const int i = 0
-        function appendToDisplay(znak) {
-            calc.znak += znak;
+<script>
+        const widok = document.getElementById('display');
+        //int i = 0;
+        //string widok = document.getElementById('display');
+        function appendToDisplay(value) {
+            widok.value += value;
         }
+
         function clearDisplay() {
-            calc = '';
+            widok.value = '';
         }
 
         function calculate() {
             try {
-                const result = eval(calc.znak);
-                calc.znak = result;
+                const result = eval(display.value);
+                widok.value = result;
             } 
             catch (error) {
-                calc.znak = 'Error';
+                widok.value = 'Error';
             }
         }
     </script>
