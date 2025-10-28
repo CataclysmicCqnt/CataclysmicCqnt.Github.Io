@@ -58,7 +58,7 @@
 <body>
 
     <div class="calculator">
-        <input type="text" id="display" readonly>
+        <input type="text" id="calc" readonly>
         <div class="keys">
             <button onclick="appendToDisplay('7')">7</button>
             <button onclick="appendToDisplay('8')">8</button>
@@ -82,20 +82,22 @@
         </div>
     </div>
     <script>
-        const display = document.getElementById('display');
-        function appendToDisplay(value) {
-            display.value += value;
+        const calc = document.getElementById('display');
+        //const int i = 0
+        function appendToDisplay(znak) {
+            calc.znak += znak;
         }
         function clearDisplay() {
-            display.value = '';
+            calc = '';
         }
 
         function calculate() {
             try {
-                const result = eval(display.value);
-                display.value = result;
-            } catch (error) {
-                display.value = 'Błąd';
+                const result = eval(calc.znak);
+                calc.znak = result;
+            } 
+            catch (error) {
+                calc.znak = 'Error';
             }
         }
     </script>
