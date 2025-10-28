@@ -42,16 +42,15 @@
             height: 60px;
             font-size: 1.5rem;
             border: none;
-            background-color: #fafafa;
+            background-color: #ffffff;
             cursor: pointer;
-            transition: background-color 0.2s;
         }
         .operator {
-            background-color: #f39c12;
+            background-color: #fa6000;
             color: white;
         }
         .equals {
-            background-color: #2ecc71;
+            background-color: #ff0000;
         }
     </style>
     </head>
@@ -60,40 +59,40 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="keys">
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('/')" class="operator">/</button>
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button onclick="add('/')" class="operator">/</button>
             
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('*')" class="operator">*</button>
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button onclick="add('*')" class="operator">*</button>
             
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('-')" class="operator">-</button>
             
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculate()" class="operator equals">=</button>
-            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
+            <button onclick="calc()" class="operator equals">=</button>
+            <button onclick="add('+')" class="operator">+</button>
         </div>
     </div>
 <script>
         const widok = document.getElementById('display');
         //int i = 0;
         //string widok = document.getElementById('display');
-        function appendToDisplay(value) {
+        function add(value) {
             widok.value += value;
         }
 
-        function clearDisplay() {
+        function clear() {
             widok.value = '';
         }
 
-        function calculate() {
+        function calc() {
             try {
                 const result = eval(display.value);
                 widok.value = result;
