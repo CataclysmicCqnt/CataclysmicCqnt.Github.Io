@@ -82,33 +82,19 @@
         </div>
     </div>
     <script>
-        // Pobieramy element wyświetlacza
         const display = document.getElementById('display');
-
-        /**
-         * Dodaje klikniętą wartość (cyfrę lub operator) do wyświetlacza.
-         */
         function appendToDisplay(value) {
             display.value += value;
         }
-
-        /**
-         * Czyści cały wyświetlacz.
-         */
         function clearDisplay() {
             display.value = '';
         }
 
-        /**
-         * Oblicza wyrażenie na wyświetlaczu.
-         */
         function calculate() {
             try {
-                // Używamy funkcji eval() do obliczenia wyrażenia
                 const result = eval(display.value);
                 display.value = result;
             } catch (error) {
-                // Jeśli użytkownik wpisał nieprawidłowe wyrażenie
                 display.value = 'Błąd';
             }
         }
