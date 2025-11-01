@@ -37,32 +37,32 @@
         background-color: #000;
     }
 
-    button {
+    przycisk {
         height: 80px;
         font-size: 2rem;
         background-color: #333; 
         color: #fff; 
     }
 
-    button:hover {
+    przycisk:hover {
         background-color: #444;
     }
 
-    .operator {
+    .znak {
         background-color: #e63946;
         color: white;
     }
 
-    .operator:hover {
+    .znak:hover {
         background-color: #d00;
     }
 
-    .equals {
+    .rowna {
         background-color: #e63946;
         color: white;
     }
 
-    .equals:hover {
+    .rowna:hover {
         background-color: #d00;
     }
 </style>
@@ -72,33 +72,31 @@
     <div class="calculator">
         <input type="text" id="display" readonly>
         <div class="keys">
-            <button onclick="add('7')">7</button>
-            <button onclick="add('8')">8</button>
-            <button onclick="add('9')">9</button>
-            <button onclick="add('/')" class="operator">/</button>
+            <przycisk onclick="add('7')">7</przycisk>
+            <przycisk onclick="add('8')">8</przycisk>
+            <przycisk onclick="add('9')">9</przycisk>
+            <przycisk onclick="add('/')" class="znak">/</przycisk>
             
-            <button onclick="add('4')">4</button>
-            <button onclick="add('5')">5</button>
-            <button onclick="add('6')">6</button>
-            <button onclick="add('*')" class="operator">*</button>
+            <przycisk onclick="add('4')">4</przycisk>
+            <przycisk onclick="add('5')">5</przycisk>
+            <przycisk onclick="add('6')">6</przycisk>
+            <przycisk onclick="add('*')" class="znak">*</przycisk>
             
-            <button onclick="add('1')">1</button>
-            <button onclick="add('2')">2</button>
-            <button onclick="add('3')">3</button>
-            <button onclick="add('-')" class="operator">-</button>
+            <przycisk onclick="add('1')">1</przycisk>
+            <przycisk onclick="add('2')">2</przycisk>
+            <przycisk onclick="add('3')">3</przycisk>
+            <przycisk onclick="add('-')" class="znak">-</przycisk>
             
-            <button onclick="add('0')">0</button>
-            <button onclick="add('.')">.</button>
-            <button onclick="calc()" class="operator equals">=</button>
-            <button onclick="add('+')" class="operator">+</button>
+            <przycisk onclick="add('0')">0</przycisk>
+            <przycisk onclick="add('.')">.</przycisk>
+            <przycisk onclick="calc()" class="znak rowna">=</przycisk>
+            <przycisk onclick="add('+')" class="znak">+</przycisk>
         </div>
     </div>
 <script>
         const widok = document.getElementById('display');
-        //int i = 0;
-        //string widok = document.getElementById('display');
-        function add(value) {
-            widok.value += value;
+        function add(a) {
+            widok.append(a);
         }
 
         function calc() {
