@@ -101,7 +101,8 @@
 
         function calc() {
             try {
-                const wynik = eval(widok.value);
+                const oblicz = new Function('return ' + widok.value);
+                const wynik = oblicz();
                 widok.value = wynik;
             } 
             catch (error) {
