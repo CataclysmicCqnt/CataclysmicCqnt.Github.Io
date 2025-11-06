@@ -59,42 +59,45 @@
     </table>
 
 <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-        
+    async function wczytajFakture() {
         try {
             const response = await fetch('faktura.xml');
             const str = await response.text();
-            
-            const xmlDoc = (new DOMParser()).parseFromString(str, "application/xml");
+            const xmlDoc = new DOMParser().parseFromString(str, "application/xml");
 
             const tbody = document.getElementById('dane-faktury');
-            const sumaTh = document.getElementById('suma-calkowita');
+            let htmlWierszy = "";
             let sumaCalkowita = 0;
 
             xmlDoc.querySelectorAll('produkt').forEach(produkt => {
-                
                 const nazwa = produkt.querySelector('nazwa').textContent;
-                const ilosc = +produkt.querySelector('ilosc').textContent;
-                const cenaJedn = +produkt.querySelector('cena_jednostkowa').textContent;
-                
+                const ilosc = parseFloat(produkt.querySelector('ilosc').textContent);
+                const cenaJedn = parseFloat(produkt.querySelector('cena_jednostkowa').textContent);
                 const cenaLacznie = ilosc * cenaJedn;
+                
                 sumaCalkowita += cenaLacznie;
-
-                const wiersz = tbody.insertRow();
-                wiersz.innerHTML = `
-                    <td>${nazwa}</td>
-                    <td>${ilosc}</td>
-                    <td>${cenaJedn.toFixed(2)} zł</td>
-                    <td>${cenaLacznie.toFixed(2)} zł</td>
+                
+                htmlWierszy += `
+                    <tr>
+                        <td>${nazwa}</td>
+                        <td>${ilosc}</td>
+                        <td>${cenaJedn.toFixed(2)} zł</td>
+                        <td>${cenaLacznie.toFixed(2)} zł</td>
+                    </tr>
                 `;
             });
-
-            sumaTh.textContent = `${sumaCalkowita.toFixed(2)} zł`;
+            
+            tbody.innerHTML = htmlWierszy;
+            document.getElementById('suma-calkowita').textContent = `${sumaCalkowita.toFixed(2)} zł`;
 
         } catch (err) {
             console.error("Błąd ładowania lub parsowania XML:", err);
+            document.getElementById('dane-faktury').innerHTML = 
+                `<tr><td colspan="4" style="color:red; text-align:center;">Nie można załadować danych faktury.</td></tr>`;
         }
-    });
+    }
+    wczytajFakture();
 </script>
 </body>
+
 </html>
