@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="faktura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="produkt" type="ProduktTyp" minOccurs="1" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ProduktTyp">
+    <xs:sequence>
+      <xs:element name="nazwa" type="xs:string" />
+      <xs:element name="ilosc" type="xs:positiveInteger" />
+      <xs:element name="cena_jednostkowa" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

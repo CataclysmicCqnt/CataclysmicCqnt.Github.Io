@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        thead {
+            background-color: #f2f2f2;
+        }
+        tfoot {
+            background-color: #e9e9e9;
+            font-weight: bold;
+        }
+        tfoot th:last-child {
+            text-align: right;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Faktura</h1>
+
+    <table id="tabela-faktury">
+        <thead>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Ilość</th>
+                <th>Cena jedn.</th>
+                <th>Cena łącznie</th>
+            </tr>
+        </thead>
+        <tbody id="dane-faktury">
+            </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3">Suma całkowita:</th>
+                <th id="suma-calkowita">0.00 zł</th>
+            </tr>
+        </tfoot>
+    </table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        
+        try {
+            const response = await fetch('faktura.xml');
+            const str = await response.text();
+            
+            const xmlDoc = (new DOMParser()).parseFromString(str, "application/xml");
+
+            const tbody = document.getElementById('dane-faktury');
+            const sumaTh = document.getElementById('suma-calkowita');
+            let sumaCalkowita = 0;
+
+            xmlDoc.querySelectorAll('produkt').forEach(produkt => {
+                
+                const nazwa = produkt.querySelector('nazwa').textContent;
+                const ilosc = +produkt.querySelector('ilosc').textContent;
+                const cenaJedn = +produkt.querySelector('cena_jednostkowa').textContent;
+                
+                const cenaLacznie = ilosc * cenaJedn;
+                sumaCalkowita += cenaLacznie;
+
+                const wiersz = tbody.insertRow();
+                wiersz.innerHTML = `
+                    <td>${nazwa}</td>
+                    <td>${ilosc}</td>
+                    <td>${cenaJedn.toFixed(2)} zł</td>
+                    <td>${cenaLacznie.toFixed(2)} zł</td>
+                `;
+            });
+
+            sumaTh.textContent = `${sumaCalkowita.toFixed(2)} zł`;
+
+        } catch (err) {
+            console.error("Błąd ładowania lub parsowania XML:", err);
+        }
+    });
+</script>
+</body>
+</html>

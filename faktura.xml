@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faktura 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="faktura.xsd">
+    
+  <produkt>
+    <nazwa>Długopis żelowy</nazwa>
+    <ilosc>10</ilosc>
+    <cena_jednostkowa>3.50</cena_jednostkowa>
+  </produkt>
+  <produkt>
+    <nazwa>Zeszyt A4 w kratkę</nazwa>
+    <ilosc>2</ilosc>
+    <cena_jednostkowa>5.00</cena_jednostkowa>
+  </produkt>
+  <produkt>
+    <nazwa>Ołówek HB</nazwa>
+    <ilosc>5</ilosc>
+    <cena_jednostkowa>1.20</cena_jednostkowa>
+  </produkt>
+</faktura>
