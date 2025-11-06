@@ -2,19 +2,30 @@
 <faktura>
     
   <produkt>
-    <nazwa>Długopis żelowy</nazwa>
-    <ilosc>10</ilosc>
-    <cena_jednostkowa>3.50</cena_jednostkowa>
+    <nazwa>Karta Graficzna</nazwa>
+    <ilosc>4</ilosc>
+    <cena_jednostkowa>1800</cena_jednostkowa>
   </produkt>
   <produkt>
-    <nazwa>Zeszyt A4 w kratkę</nazwa>
-    <ilosc>2</ilosc>
-    <cena_jednostkowa>5.00</cena_jednostkowa>
-  </produkt>
-  <produkt>
-    <nazwa>Ołówek HB</nazwa>
+    <nazwa>Procesor</nazwa>
     <ilosc>5</ilosc>
-    <cena_jednostkowa>1.20</cena_jednostkowa>
+    <cena_jednostkowa>1200</cena_jednostkowa>
+  </produkt>
+  <produkt>
+    <nazwa>Płyta Główna</nazwa>
+    <ilosc>5</ilosc>
+    <cena_jednostkowa>600</cena_jednostkowa>
+  </produkt>
+  <produkt>
+    <nazwa>Wiatrak Chłodzący</nazwa>
+    <ilosc>11</ilosc>
+    <cena_jednostkowa>100</cena_jednostkowa>
+  </produkt>
+  <produkt>
+    <nazwa>Case</nazwa>
+    <ilosc>5</ilosc>
+    <cena_jednostkowa>400</cena_jednostkowa>
   </produkt>
 
 </faktura>
+
