@@ -12,10 +12,11 @@
   <xs:complexType name="ProduktTyp">
     <xs:sequence>
       <xs:element name="nazwa" type="xs:string" />
-      <xs:element name="ilosc" type="xs:positiveInteger" />
+      <xs:element name="ilosc" type="xs:Integer" />
       <xs:element name="cena_jednostkowa" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
 
 
 </xs:schema>
+
