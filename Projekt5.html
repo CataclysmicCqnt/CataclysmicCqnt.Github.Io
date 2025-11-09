@@ -99,8 +99,8 @@
 
                 xmlDoc.querySelectorAll('produkt').forEach(produkt => {
                     const nazwa = produkt.querySelector('nazwa').textContent;
-                    const ilosc = parseFloat(produkt.querySelector('ilosc').textContent);
-                    const cenaJedn = parseFloat(produkt.querySelector('cena_jednostkowa').textContent);
+                    const ilosc = Number(produkt.querySelector('ilosc').textContent);
+                    const cenaJedn = Number(produkt.querySelector('cena_jednostkowa').textContent);
                     const cenaLacznie = ilosc * cenaJedn;
                     
                     sumaCalkowita += cenaLacznie;
@@ -127,6 +127,7 @@
 </body>
 
 </html>
+
 
 
 
