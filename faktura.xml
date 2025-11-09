@@ -22,10 +22,11 @@
     <cena_jednostkowa>100</cena_jednostkowa>
   </produkt>
   <produkt>
-    <nazwa>Case</nazwa>
+    <nazwa>Obudowa Komputerowa</nazwa>
     <ilosc>5</ilosc>
     <cena_jednostkowa>400</cena_jednostkowa>
   </produkt>
 
 </faktura>
+
 
