@@ -42,12 +42,6 @@
         color: #ff4d4d;
         font-size: 1.1em;
     }
-    .error {
-        color: #ff4d4d;
-        text-align: center;
-        font-weight: bold;
-    }
-
     .form-dodawania {
         width: 80%;
         margin: 20px auto;
@@ -74,9 +68,6 @@
         font-weight: bold;
         cursor: pointer;
     }
-    .form-dodawania button:hover {
-        background-color: #ff4d4d;
-    }
 </style>
 </head>
 <body>
@@ -100,7 +91,7 @@
             </tr>
         </thead>
         <tbody id="dane-faktury">
-            </tbody>
+        </tbody>
         <tfoot>
             <tr>
                 <th colspan="3">Suma całkowita:</th>
@@ -112,13 +103,38 @@
 <script>
     const tbody = document.getElementById('dane-faktury');
     const sumaTh = document.getElementById('suma-calkowita');
-    
     const nazwaInput = document.getElementById('nazwa');
     const iloscInput = document.getElementById('ilosc');
     const cenaInput = document.getElementById('cena');
     const dodajBtn = document.getElementById('dodaj-przycisk');
 
-    let sumaCalkowita = 0;
+    let listaProduktow = [];
+    
+    function zapiszProdukty() {
+        localStorage.setItem('zapisaneProdukty', JSON.stringify(listaProduktow));
+    }
+
+    function renderujTabele() {
+        tbody.innerHTML = '';
+        
+        let sumaCalkowita = 0;
+
+        listaProduktow.forEach(produkt => {
+            const cenaLacznie = produkt.ilosc * produkt.cenaJedn;
+            sumaCalkowita += cenaLacznie;
+
+            const nowyWiersz = document.createElement('tr');
+            nowyWiersz.innerHTML = `
+                <td>${produkt.nazwa}</td>
+                <td>${produkt.ilosc}</td>
+                <td>${produkt.cenaJedn.toFixed(2)} zł</td>
+                <td>${cenaLacznie.toFixed(2)} zł</td>
+            `;
+            tbody.appendChild(nowyWiersz);
+        });
+
+        sumaTh.textContent = `${sumaCalkowita.toFixed(2)} zł`;
+    }
 
     function dodajProdukt() {
         const nazwa = nazwaInput.value;
@@ -126,34 +142,41 @@
         const cenaJedn = Number(cenaInput.value);
 
         if (!nazwa || ilosc <= 0 || cenaJedn <= 0) {
-            alert("Proszę wypełnić poprawnie wszystko");
+            alert("Proszę wypełnić poprawnie wszystkie pola.");
             return;
         }
 
-        const cenaLacznie = ilosc * cenaJedn;
+        const nowyProdukt = {
+            nazwa: nazwa,
+            ilosc: ilosc,
+            cenaJedn: cenaJedn
+        };
 
-        const nowyWiersz = document.createElement('tr');
+        listaProduktow.push(nowyProdukt);
         
-        nowyWiersz.innerHTML = `
-            <td>${nazwa}</td>
-            <td>${ilosc}</td>
-            <td>${cenaJedn.toFixed(2)} zł</td>
-            <td>${cenaLacznie.toFixed(2)} zł</td>
-        `;
+        zapiszProdukty();
         
-        tbody.appendChild(nowyWiersz);
-        sumaCalkowita += cenaLacznie;
-        
-        sumaTh.textContent = `${sumaCalkowita.toFixed(2)} zł`;
+        renderujTabele();
 
         nazwaInput.value = '';
         iloscInput.value = '';
         cenaInput.value = '';
+        nazwaInput.focus();
+    }
+    
+    function wczytajPrzyStarcie() {
+        const zapisaneDane = localStorage.getItem('zapisaneProdukty');
+        
+        if (zapisaneDane) {
+            listaProduktow = JSON.parse(zapisaneDane);
+            renderujTabele();
+        }
     }
 
     dodajBtn.addEventListener('click', dodajProdukt);
+    
+    wczytajPrzyStarcie();
 
 </script>
 </body>
 </html>
-
